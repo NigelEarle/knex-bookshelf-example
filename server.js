@@ -1,21 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const knex = require('knex');
+
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-const knexConfig = knex({
-  client: 'postgresql',
-  connection: {
-    host: '127.0.0.1',
-    user: 'nwre87',
-    database: 'bookshelf_example',
-    charset: 'utf8'
-  }
-});
+// db config for current environment
+const environment = process.env.ENVIRONMENT || 'development';
+const config = require('./knexfile')[environment];
 
-const bookshelf = require('bookshelf')(knexConfig);
+// use env config to instantiate knex
+const knex = require('knex')(config);
+
+// pass knex instance to bookshelf
+const bookshelf = require('bookshelf')(knex);
 
 const User = bookshelf.Model.extend({
   tableName: 'users',
