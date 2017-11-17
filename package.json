@@ -1,0 +1,13 @@
+{
+  "name": "knex-bookshelf-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:NigelEarle/knex-bookshelf-example.git",
+  "author": "nwre87 <nwre87@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bookshelf": "^0.11.1",
+    "knex": "^0.14.0",
+    "pg": "^7.4.0"
+  }
+}
