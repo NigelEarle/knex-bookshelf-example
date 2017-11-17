@@ -15,3 +15,5 @@ $ node server.js
 
 Server listening on port: 3000
 ```
+
+Test existing endpoints on Postman!
