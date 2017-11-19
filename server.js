@@ -45,18 +45,14 @@ app.get('/api/users', (req, res) => {
 app.get('/api/users/:id/tasks', (req, res) => {
   // fetch all tasks related to user id
   const { id } = req.params;
-  User.where('id', id)
-  .fetch({
-    withRelated: ['tasks']
-  })
-  .then(user => {
-    res.json({
-      tasks: user.related('tasks').toJSON()
-    });
+  Tasks.where({ user_id: id })
+  .fetchAll()
+  .then(tasks => {
+    res.json({ tasks });
   })
   .catch(err => {
     res.json({ err });
-  })
+  });
 })
 
 app.listen(PORT, (err) => {
