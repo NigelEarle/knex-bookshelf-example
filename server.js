@@ -55,10 +55,10 @@ app.get('/api/users/:user_id/tasks', (req, res) => {
   Tasks.where({ user_id })
   .fetchAll()
   .then(tasks => {
-    return res.json({ tasks });
+    return res.json(tasks);
   })
   .catch(err => {
-    return res.json({ err });
+    return res.json(err);
   });
 });
 
@@ -70,17 +70,16 @@ app.get('/api/tasks/:task_id', (req, res) => {
   Tasks.where('id', task_id)
   .fetch()
   .then(task => {
-    return res.json({ task })
+    return res.json(task)
   })
   .catch(err => {
-    return res.json({ err })
+    return res.json(err)
   })
 
 });
 
 app.post('/api/users/:id/tasks/new', (req, res) => {
   // add new task, associated to user
-  const { id } = req.params;
 
   const payload = {
     title: req.body.title,
