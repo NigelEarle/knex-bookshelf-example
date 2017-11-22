@@ -6,17 +6,22 @@ Create your database locally and add username and db name to `knexfile.js` devel
 
 Run the following commands in order from the root of your project to create tables, seed tables and start node server.
 
-1. Run migrations
+1. Install dependencies
+```
+$ npm install or yarn install
+```
+
+2. Run migrations
 ```
 $ knex migrate:latest
 ```
 
-2. Run seed files
+3. Run seed files
 ```
 $ knex seed:run
 ```
 
-3. Start server
+4. Start server
 ```
 $ node server.js
 
