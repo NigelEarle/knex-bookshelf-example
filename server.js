@@ -15,6 +15,7 @@ const knex = require('knex')(config);
 // pass knex instance to bookshelf
 const bookshelf = require('bookshelf')(knex);
 
+// Models
 const User = bookshelf.Model.extend({
   tableName: 'users',
   posts: function() {
@@ -36,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/api/users', (req, res) => {
   // fetch all users
+
   User.fetchAll()
   .then(users => {
     return res.json({
@@ -134,6 +136,7 @@ app.put('/api/tasks/:task_id/update', (req, res) => {
 
 app.delete('/api/tasks/:task_id/delete', (req, res) => {
   // delete task
+
   const { task_id } = req.params;
 
   Tasks.where('id', task_id)
