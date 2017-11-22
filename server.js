@@ -100,14 +100,14 @@ app.post('/api/users/:id/tasks/new', (req, res) => {
 
   // Alternate INSERT
 
-  // Tasks.forge(payload)
-  // .save()
-  // .then(result => {
-  //   return res.json(result);
-  // })
-  // .catch(err => {
-  //   return res.json(err);
-  // });
+  Tasks.forge(payload)
+  .save()
+  .then(result => {
+    return res.json(result);
+  })
+  .catch(err => {
+    return res.json(err);
+  });
 });
 
 app.put('/api/tasks/:task_id/update', (req, res) => {
