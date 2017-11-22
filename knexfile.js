@@ -3,8 +3,8 @@ module.exports = {
     client: 'pg',
     connection: {
       host: '127.0.0.1',
-      user: 'nwre87',
-      database: 'bookshelf_example',
+      user: [USERNAME],
+      database: [DATABASE],
       charset: 'utf8'
     },
     migrations: {
