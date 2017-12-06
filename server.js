@@ -1,31 +1,34 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+
+const User = require('./models/User');
+const Tasks = require('./models/Tasks');
 
 const app = express();
 
 // db config for current environment
-const environment = process.env.ENVIRONMENT || 'development';
-const config = require('./knexfile')[environment];
+// const environment = process.env.ENVIRONMENT || 'development';
+// const config = require('./knexfile')[environment];
 
 // use env config to instantiate knex
-const knex = require('knex')(config);
+// const knex = require('knex')(config);
 
 // pass knex instance to bookshelf
-const bookshelf = require('bookshelf')(knex);
+// const bookshelf = require('bookshelf')(knex);
 
 // Models
-const User = bookshelf.Model.extend({
-  tableName: 'users',
-  posts: function() {
-    return this.hasMany(Task);
-  }
-});
+// const User = bookshelf.Model.extend({
+//   tableName: 'users',
+//   posts: function() {
+//     return this.hasMany(Task);
+//   }
+// });
 
-const Tasks = bookshelf.Model.extend({
-  tableName: 'tasks'
-});
+// const Tasks = bookshelf.Model.extend({
+//   tableName: 'tasks'
+// });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
